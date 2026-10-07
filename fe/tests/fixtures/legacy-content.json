@@ -1,0 +1,260 @@
+{
+  "species": [
+    {
+      "id": "cobra",
+      "name": "Cobra",
+      "title": "Nọc độc thức tỉnh",
+      "description": "Khởi đầu với đốt độc. Sát thương độc tăng 30%.",
+      "color": "#b69aff",
+      "startingSegment": "poison"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "title": "Pháo đài sống",
+      "description": "Khởi đầu với giáp. +40% sát thương thân, +20% máu đốt; di chuyển chậm hơn 15%.",
+      "color": "#edc078",
+      "startingSegment": "armor"
+    },
+    {
+      "id": "viper",
+      "name": "Viper",
+      "title": "Bản năng săn mồi",
+      "description": "Khởi đầu với đốt lửa. +12% tốc độ và 18% cơ hội chí mạng.",
+      "color": "#80e9b3",
+      "startingSegment": "fire"
+    }
+  ],
+  "segments": {
+    "normal": {
+      "name": "Sinh trưởng",
+      "color": "#84eda6",
+      "icon": "●"
+    },
+    "fire": {
+      "name": "Hỏa thể",
+      "color": "#ffae67",
+      "icon": "✦"
+    },
+    "poison": {
+      "name": "Độc thể",
+      "color": "#bc91ff",
+      "icon": "◆"
+    },
+    "armor": {
+      "name": "Thiết giáp",
+      "color": "#a7d3de",
+      "icon": "⬡"
+    }
+  },
+  "upgradesList": [
+    {
+      "id": "fire",
+      "name": "Hỏa thể",
+      "description": "Thêm một đốt lửa, tự thiêu đốt kẻ địch xung quanh.",
+      "type": "segment",
+      "color": "#ffae67"
+    },
+    {
+      "id": "poison",
+      "name": "Độc thể",
+      "description": "Thêm một đốt độc, gây sát thương theo thời gian.",
+      "type": "segment",
+      "color": "#bc91ff"
+    },
+    {
+      "id": "armor",
+      "name": "Thiết giáp",
+      "description": "Thêm một đốt giáp bền bỉ, giảm sát thương nhận vào.",
+      "type": "segment",
+      "color": "#a7d3de"
+    },
+    {
+      "id": "fangs",
+      "name": "Nanh săn mồi",
+      "description": "Tăng 22% sát thương cắn và va chạm thân.",
+      "type": "offense",
+      "color": "#f7cf88"
+    },
+    {
+      "id": "haste",
+      "name": "Trườn như gió",
+      "description": "Tăng 9% tốc độ và 14% khả năng chuyển hướng.",
+      "type": "utility",
+      "color": "#a0f0c2"
+    },
+    {
+      "id": "magnet",
+      "name": "Sức hút hoang dã",
+      "description": "Tăng 36 đơn vị tầm hút thức ăn và kinh nghiệm.",
+      "type": "utility",
+      "color": "#8dd8ff"
+    },
+    {
+      "id": "growth",
+      "name": "Mầm sống",
+      "description": "Mọc thêm hai đốt và tăng 20% sinh trưởng từ thức ăn.",
+      "type": "growth",
+      "color": "#8cec9b"
+    },
+    {
+      "id": "vitality",
+      "name": "Vảy tái sinh",
+      "description": "Tăng 18% máu tối đa của mọi đốt và hồi đầy máu.",
+      "type": "defense",
+      "color": "#86d6c2"
+    },
+    {
+      "id": "elements",
+      "name": "Cộng hưởng",
+      "description": "Tăng 25% sát thương của các đốt lửa và độc.",
+      "type": "offense",
+      "color": "#ff96bb"
+    },
+    {
+      "id": "pulse",
+      "name": "Sóng chấn động",
+      "description": "Tăng 25% sát thương, 12% bán kính xung lực; hồi chiêu ngay.",
+      "type": "skill",
+      "color": "#8de8dc"
+    },
+    {
+      "id": "agility",
+      "name": "Bản năng thoát hiểm",
+      "description": "Giảm 15% hồi chiêu lướt và xung lực; hồi chiêu ngay.",
+      "type": "skill",
+      "color": "#a2c2ff"
+    },
+    {
+      "id": "wisdom",
+      "name": "Ký ức cổ xưa",
+      "description": "Tăng 20% kinh nghiệm, 0,25 May mắn cho lần roll sau và hồi 50 máu.",
+      "type": "utility",
+      "color": "#e7b8ff"
+    }
+  ],
+  "rarities": [
+    {
+      "id": "COMMON",
+      "name": "Thường",
+      "color": "#b7c5ae",
+      "power": 1
+    },
+    {
+      "id": "RARE",
+      "name": "Hiếm",
+      "color": "#7dbdff",
+      "power": 1.35
+    },
+    {
+      "id": "EPIC",
+      "name": "Sử thi",
+      "color": "#c29aff",
+      "power": 1.8
+    },
+    {
+      "id": "LEGENDARY",
+      "name": "Huyền thoại",
+      "color": "#ffc369",
+      "power": 2.2
+    },
+    {
+      "id": "MYTHIC",
+      "name": "Thần thoại",
+      "color": "#ff82ae",
+      "power": 2.6
+    }
+  ],
+  "upgradeTags": {
+    "fire": [
+      "FIRE",
+      "ELEMENT",
+      "BODY",
+      "DAMAGE",
+      "BURN"
+    ],
+    "poison": [
+      "POISON",
+      "ELEMENT",
+      "BODY",
+      "DAMAGE"
+    ],
+    "armor": [
+      "BODY",
+      "DEFENSE"
+    ],
+    "fangs": [
+      "CRITICAL",
+      "DAMAGE"
+    ],
+    "haste": [
+      "MOBILITY"
+    ],
+    "magnet": [
+      "UTILITY",
+      "GROWTH"
+    ],
+    "growth": [
+      "GROWTH",
+      "BODY"
+    ],
+    "vitality": [
+      "REGEN",
+      "DEFENSE"
+    ],
+    "elements": [
+      "ELEMENT",
+      "DAMAGE"
+    ],
+    "pulse": [
+      "EXPLOSION",
+      "SKILL"
+    ],
+    "agility": [
+      "MOBILITY",
+      "SKILL"
+    ],
+    "wisdom": [
+      "LUCK",
+      "XP",
+      "UTILITY"
+    ]
+  },
+  "traits": [
+    {
+      "id": "toxic_ignition",
+      "name": "Hỏa độc bùng nổ",
+      "description": "Quái vừa cháy vừa nhiễm độc phát nổ khi chết.",
+      "kind": "element",
+      "required": 2
+    },
+    {
+      "id": "critical_wave",
+      "name": "Sóng chí mạng",
+      "description": "Nanh và xung lực cộng hưởng: xung lực tăng 20% sát thương.",
+      "kind": "mechanical",
+      "required": 2
+    },
+    {
+      "id": "volatile_chain",
+      "name": "Chuỗi phản ứng",
+      "description": "Đốt lửa kề độc: sát thương nguyên tố tăng 15%.",
+      "kind": "adjacency",
+      "required": 2
+    },
+    {
+      "id": "fire_dominion",
+      "name": "Lãnh địa hỏa thể",
+      "description": "Có 3 đốt lửa: bán kính lửa tăng 25%.",
+      "kind": "threshold",
+      "required": 3
+    },
+    {
+      "id": "ember_crown",
+      "name": "Vương miện tro tàn",
+      "description": "Hai nâng cấp lửa từ Sử thi: thời gian cháy tăng gấp đôi.",
+      "kind": "rarity",
+      "required": 2
+    }
+  ]
+}

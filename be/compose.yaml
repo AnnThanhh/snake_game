@@ -1,0 +1,69 @@
+name: serpent-survivor
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: serpent
+      POSTGRES_USER: serpent
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run npm run setup first}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-54329}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U serpent -d serpent"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    stop_grace_period: 30s
+  redis:
+    image: redis:8-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Run npm run setup first}
+    command: ["sh", "-c", "exec redis-server --appendonly yes --requirepass \"$$REDIS_PASSWORD\""]
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-16379}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=$$REDIS_PASSWORD redis-cli ping | grep -q PONG"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    profiles: [monitoring]
+    restart: unless-stopped
+    ports: ["127.0.0.1:9090:9090"]
+    volumes:
+      - ./ops/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./ops/monitoring/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus-data:/prometheus
+  grafana:
+    image: grafana/grafana:12.3.0
+    profiles: [monitoring]
+    restart: unless-stopped
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-}
+    ports: ["127.0.0.1:3030:3000"]
+    volumes:
+      - ./ops/monitoring/grafana:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+  otel:
+    image: otel/opentelemetry-collector-contrib:0.139.0
+    profiles: [monitoring]
+    restart: unless-stopped
+    command: ["--config=/etc/otel/config.yaml"]
+    ports: ["127.0.0.1:4318:4318"]
+    volumes:
+      - ./ops/monitoring/otel.yaml:/etc/otel/config.yaml:ro
+volumes:
+  postgres-data:
+  redis-data:
+  prometheus-data:
+  grafana-data:

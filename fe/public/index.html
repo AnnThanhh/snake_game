@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10130f" />
+    <title>{{copy:text_8229e20344f754}}</title>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="home" class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="{{copy:text_d81b1053e1a55f}}"
+          ><img src="/icon.svg" alt="" /><span
+            >{{copy:text_0af15a4e92e643}}<span>{{copy:text_de0b22cba646b9}}</span></span
+          ></a
+        >
+        <div class="nav-label">{{copy:text_9b5a1ec93b0091}}</div>
+        <nav aria-label="{{copy:text_84d2467acaca8f}}">
+          <button class="nav-item active" data-action="home">
+            <span>◈</span> {{copy:text_b3cacc46a7dba1}} <span class="nav-arrow">↗</span>
+          </button>
+          <button class="nav-item" data-action="species">
+            <span>⌁</span> {{copy:text_4543a2566577f1}} <small>03</small>
+          </button>
+          <button class="nav-item" data-action="rooms">
+            <span>♧</span> {{copy:text_471f15be793a1d}}
+          </button>
+          <button class="nav-item" data-account="profile">
+            <span>◎</span> {{copy:text_b2ab888fb38e0c}}
+          </button>
+          <button class="nav-item" data-account="season">
+            <span>♜</span> {{copy:text_7809497eaaa934}}
+          </button>
+          <button class="nav-item" data-action="guide">
+            <span>▤</span> {{copy:text_cffbd75a38f03e}}
+          </button>
+          <button class="nav-item" data-action="records">
+            <span>◇</span> {{copy:text_c32766362dbfdf}}
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="field-note">
+            <span class="tiny-label">{{copy:text_c8e7abcb2f03fc}}</span>
+            <div class="note-symbol">⌁</div>
+            <p>{{copy:text_df73d1ccd09e52}}<br />{{copy:text_931517d0e75014}}</p>
+            <span class="muted">{{copy:text_95bd53b75e7c7c}}</span>
+          </div>
+          <button class="nav-item" data-action="settings">
+            <span>⚙</span> {{copy:text_202e0e9b0b8556}}
+          </button>
+          <div class="version">
+            <span class="status-dot"></span> {{copy:text_c6d6ef4b7208b3}} <span>{{copy:text_aba0efd9b43005}}</span>
+          </div>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <span class="muted">{{copy:text_9b5a1ec93b0091}}</span><span class="slash">/</span
+            ><span>{{copy:text_eef60988e44649}}</span>
+          </div>
+          <div class="topbar-right">
+            <span class="online-pill"
+              ><span class="status-dot"></span
+              ><span id="server-status">{{copy:text_6a8fad20467a6c}}</span></span
+            ><button
+              class="icon-button"
+              data-action="settings"
+              aria-label="{{copy:text_60ab929f53f3fa}}"
+            >
+              ⚙
+            </button>
+            <button
+              class="account-pill"
+              data-account="profile"
+              id="account-button"
+            >
+              {{copy:text_47e7aeb3d0c0cd}}
+            </button>
+          </div>
+        </header>
+        <div class="page-content">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow">{{copy:text_2b2a6b0e8bf669}}</div>
+              <h1>{{copy:text_585e389d7ce3a5}}</h1>
+              <p>
+                {{copy:text_ad9e71ccc2f849}}
+              </p>
+            </div>
+            <span class="build-badge">{{copy:text_1733e7ff05e37f}} <span>↗</span></span>
+          </div>
+          <div class="dashboard-grid">
+            <div class="main-column">
+              <section class="hero-card" aria-label="{{copy:text_a965e8418240fb}}">
+                <canvas id="hero-art" aria-hidden="true"></canvas>
+                <div class="hero-shade"></div>
+                <div class="hero-content">
+                  <div class="hero-kicker">
+                    <span class="status-dot"></span> {{copy:text_a1447e56b56cf1}}
+                  </div>
+                  <h2>{{copy:text_0af15a4e92e643}}<br /><span>{{copy:text_de0b22cba646b9}}</span></h2>
+                  <p>{{copy:text_555382a26ee38a}}<br />{{copy:text_ad2bdcec938347}}</p>
+                  <button class="text-button" data-action="guide">
+                    {{copy:text_a2d570082c01d2}} <span>↗</span>
+                  </button>
+                </div>
+                <div class="hero-footer">
+                  <span><i class="map-dot"></i> {{copy:text_8e6e23a3914f49}}</span
+                  ><span>{{copy:text_9d4fbd5b87561b}}</span>
+                </div>
+                <div class="art-label">
+                  <span>{{copy:text_10cf76bfe285d7}}</span><strong>{{copy:text_13541ada688649}}</strong><i></i>
+                </div>
+              </section>
+              <section class="species-section">
+                <div class="section-heading">
+                  <h2>
+                    <span class="section-number">01</span> {{copy:text_a89ea4480d7098}}
+                  </h2>
+                  <span>{{copy:text_d4895199079d87}}</span>
+                </div>
+                <div id="species-grid" class="species-grid"></div>
+              </section>
+              <section class="anatomy-section">
+                <div class="section-heading">
+                  <h2>
+                    <span class="section-number">02</span> {{copy:text_148e26bc1f5ee4}}
+                  </h2>
+                  <button class="text-button" data-action="guide">
+                    {{copy:text_f9eea8f1eec219}} <span>↗</span>
+                  </button>
+                </div>
+                <div class="segment-grid">
+                  <div class="segment-item">
+                    <span class="segment-glyph normal">●</span>
+                    <div>
+                      <strong>{{copy:text_a61971cd71a397}}</strong
+                      ><small>{{copy:text_414e37c45a8a2b}}</small>
+                    </div>
+                  </div>
+                  <div class="segment-item">
+                    <span class="segment-glyph fire">♨</span>
+                    <div>
+                      <strong>{{copy:text_77946b9ceda12e}}</strong><small>{{copy:text_162c0244ff6bc4}}</small>
+                    </div>
+                  </div>
+                  <div class="segment-item">
+                    <span class="segment-glyph poison">✧</span>
+                    <div>
+                      <strong>{{copy:text_d31535d5efd9c7}}</strong
+                      ><small>{{copy:text_a75f28d62deafc}}</small>
+                    </div>
+                  </div>
+                  <div class="segment-item">
+                    <span class="segment-glyph armor">⬡</span>
+                    <div>
+                      <strong>{{copy:text_00e2c573b6444d}}</strong><small>{{copy:text_aa48f5c7e5ffcd}}</small>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <aside class="expedition-panel">
+              <div class="panel-heading">
+                <span class="eyebrow">{{copy:text_92d33a15e0a691}}</span><span>↗</span>
+              </div>
+              <h2>{{copy:text_b2ff0541ca3e05}}</h2>
+              <p class="muted panel-intro">{{copy:text_408ab7f950c8cb}}</p>
+              <label class="input-label" for="player-name">{{copy:text_aeaadb0e49d390}}</label
+              ><input
+                id="player-name"
+                maxlength="20"
+                value="Survivor"
+                autocomplete="nickname"
+                spellcheck="false"
+              />
+              <div class="input-label">{{copy:text_183aa7dc90f8bc}}</div>
+              <div class="mode-switch" role="group" aria-label="{{copy:text_bcb80d61bed183}}">
+                <button id="mode-arena" class="selected" aria-pressed="true">
+                  {{copy:text_026f9baed3d506}}
+                </button>
+                <button id="mode-solo" aria-pressed="false">
+                  {{copy:text_f1512a6d49b2b6}}</button
+                ><button id="mode-coop" aria-pressed="false">
+                  {{copy:text_c0abb46d5e60a2}}
+                </button>
+              </div>
+              <div class="arena-intro" id="arena-intro">
+                <span class="status-dot"></span>
+                <div>
+                  <strong>{{copy:text_934b89432ca121}}</strong
+                  ><small>{{copy:text_04ca0ec1a83f43}}</small>
+                </div>
+              </div>
+              <div class="map-preview">
+                <div class="map-landscape">
+                  <svg viewBox="0 0 300 95" aria-hidden="true">
+                    <path
+                      d="M0 80 30 35 60 62 100 15 150 66 192 30 220 52 254 15 300 55V95H0Z"
+                      fill="#2c3b27"
+                    />
+                    <path
+                      d="m0 90 55-38 55 24 43-36 66 47 42-22 39 15v15H0Z"
+                      fill="#1b281b"
+                    />
+                    <g fill="#759453">
+                      <path
+                        d="m42 73 8-25 8 25zm128 9 11-38 11 38zm70-13 8-25 8 25z"
+                      />
+                    </g></svg
+                  ><span class="map-tag">{{copy:text_24c3aa716553d2}}</span>
+                </div>
+                <div class="map-description">
+                  <div>
+                    <strong>{{copy:text_99758d3b311e29}}</strong
+                    ><span>{{copy:text_8159eae6ede18f}}</span>
+                  </div>
+                  <span class="check-circle">✓</span>
+                </div>
+              </div>
+              <div class="expedition-stats">
+                <div>
+                  <span>{{copy:text_b295fd620d82e2}}</span
+                  ><strong id="mode-duration">{{copy:text_ee6455636d4579}}</strong>
+                </div>
+                <div>
+                  <span id="mode-capacity-label">{{copy:text_6e629abd6f0e40}}</span
+                  ><strong id="mode-capacity">{{copy:text_7bae3b7b92e076}}</strong>
+                </div>
+                <div>
+                  <span>{{copy:text_28c87bd3d09865}}</span
+                  ><strong id="selected-species-name">{{copy:text_8a941c0465cdc0}}</strong>
+                </div>
+              </div>
+              <button id="play-button" class="primary-button" disabled>
+                <span>{{copy:text_eba03ad4826177}}</span><span>↗</span></button
+              ><button id="join-button" class="secondary-button" disabled>
+                {{copy:text_5ccfb38d812f35}} <span>→</span>
+              </button>
+              <p id="mode-note" class="panel-note">
+                <span>◇</span> {{copy:text_ff90359b2d515c}}
+              </p>
+              <div class="best-run">
+                <span class="best-icon">♜</span>
+                <div>
+                  <span>{{copy:text_03793fc03a6483}}</span
+                  ><strong id="best-record"
+                    >{{copy:text_25bb10a3635c65}}</strong
+                  >
+                </div>
+              </div>
+            </aside>
+          </div>
+          <footer class="page-footer">
+            <span><span class="status-dot"></span> {{copy:text_f4ce6a28c78f48}}</span>
+            <div>
+              <kbd>{{copy:text_a5ebfa98155839}}</kbd> {{copy:text_9dc4e6eb747b16}} <span>·</span> <kbd>{{copy:text_7ed62da858e13c}}</kbd> {{copy:text_60eb586005386c}}
+              <span>·</span> <kbd>{{copy:text_4ae81572f06e1b}}</kbd> {{copy:text_6ac8bcb03e7073}}
+            </div>
+            <span>{{copy:text_fbe75fc22b5695}}</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+    <section
+      id="game"
+      class="game-screen"
+      hidden
+      aria-label="{{copy:text_391ba7b143d2d0}}"
+    >
+      <canvas
+        id="arena"
+        tabindex="0"
+        aria-label="{{copy:text_cc1b79df1e5765}}"
+      ></canvas>
+      <div class="game-top-left hud-panel">
+        <div class="player-heading">
+          <span class="hud-species-icon">⌁</span>
+          <div>
+            <strong id="hud-name">{{copy:text_51b40c9947e473}}</strong
+            ><small id="hud-species">{{copy:text_7ec55ed08a494d}}</small>
+          </div>
+          <span class="level-chip">{{copy:text_fcdb0592cd60d9}} <b id="hud-level">1</b></span>
+        </div>
+        <div class="integrity-heading">
+          <span>{{copy:text_48709efdac7f45}}</span><strong id="hud-integrity">100%</strong>
+        </div>
+        <div class="meter health-meter"><i id="health-fill"></i></div>
+        <div class="xp-row">
+          <span id="hud-length">{{copy:text_9181b64297c4b0}}</span><span id="hud-xp">{{copy:text_4347b151f82a43}}</span>
+        </div>
+        <div class="meter xp-meter"><i id="xp-fill"></i></div>
+      </div>
+      <div class="game-top-center">
+        <div class="run-label">{{copy:text_8e6e23a3914f49}}</div>
+        <div id="hud-timer">00:00</div>
+        <div id="hud-stage">{{copy:text_cd649a0a50a960}}</div>
+        <div id="boss-hud" hidden>
+          <span id="boss-name">{{copy:text_2987922e06f9b2}}</span>
+          <div class="meter boss-meter"><i id="boss-fill"></i></div>
+        </div>
+      </div>
+      <div class="game-top-right">
+        <div class="game-actions">
+          <span id="connection-tag" class="online-pill"
+            ><span class="status-dot"></span> {{copy:text_d4008456cd59ff}}</span
+          ><button
+            id="pause-button"
+            class="icon-button"
+            aria-label="{{copy:text_246046bf3577c3}}"
+          >
+            Ⅱ
+          </button>
+        </div>
+        <div class="run-stats">
+          <div><small>{{copy:text_923a12b64d3f30}}</small><strong id="hud-kills">0</strong></div>
+          <div><small>{{copy:text_3f661e650e6af5}}</small><strong id="hud-score">0</strong></div>
+          <div><small>{{copy:text_e7248d6360290d}}</small><strong id="hud-gold">0</strong></div>
+        </div>
+        <div id="leaderboard" class="leaderboard" hidden></div>
+      </div>
+      <div class="game-bottom-left">
+        <span class="tiny-label">{{copy:text_a7306706fbddf1}}</span>
+        <div id="body-build" class="body-build"></div>
+        <div id="trait-hud" class="trait-hud"></div>
+        <span class="muted controls-hint"
+          >{{copy:text_8bcfe2e991effc}}</span
+        >
+      </div>
+      <div class="game-bottom-center">
+        <button id="dash-button" class="skill-button">
+          <kbd>{{copy:text_7ed62da858e13c}}</kbd><span>↯</span><strong>{{copy:text_60eb586005386c}}</strong
+          ><small id="dash-cooldown">{{copy:text_57b86e372db32c}}</small></button
+        ><button id="pulse-button" class="skill-button">
+          <kbd>{{copy:text_4ae81572f06e1b}}</kbd><span>◎</span><strong>{{copy:text_6ac8bcb03e7073}}</strong
+          ><small id="pulse-cooldown">{{copy:text_57b86e372db32c}}</small>
+        </button>
+        <button
+          id="interact-button"
+          class="skill-button"
+          hidden
+          aria-label="{{copy:text_e32c7c60e01c96}}"
+          style="touch-action: none"
+        >
+          <kbd>{{copy:text_a9f51566bd6705}}</kbd><span>↗</span><strong>{{copy:text_dcb43c6496cd1f}}</strong
+          ><small>{{copy:text_28edf5909a60ee}}</small>
+        </button>
+      </div>
+      <div class="game-bottom-right">
+        <canvas
+          id="minimap"
+          width="140"
+          height="105"
+          aria-label="{{copy:text_58ffa9955f3890}}"
+        ></canvas>
+        <div class="map-coordinate">{{copy:text_8e6e23a3914f49}} <span>01</span></div>
+      </div>
+      <div id="telemetry" class="telemetry" hidden></div>
+      <div
+        id="connection-warning"
+        class="connection-warning"
+        role="status"
+        hidden
+      ></div>
+      <div id="game-notice" class="game-notice" role="status"></div>
+      <div id="scoreboard" class="scoreboard" hidden></div>
+    </section>
+    <dialog id="modal" class="modal" aria-label="{{copy:text_2cc870c717c072}}">
+      <button id="modal-close" class="modal-close" aria-label="{{copy:text_5d54c2a1a34173}}">{{copy:text_8db71ed28b0f2f}}</button>
+      <div id="modal-content"></div>
+    </dialog>
+    <dialog
+      id="upgrade-modal"
+      class="modal upgrade-modal"
+      aria-labelledby="upgrade-title"
+    >
+      <div class="eyebrow">{{copy:text_d28b1b14b80f83}}</div>
+      <h2 id="upgrade-title">{{copy:text_1f2af1b00e8718}}</h2>
+      <p id="upgrade-subtitle">{{copy:text_aa71549876c057}}</p>
+      <div id="upgrade-choices" class="upgrade-choices"></div>
+      <p class="upgrade-tip">{{copy:text_d5d02e1339e712}}</p>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

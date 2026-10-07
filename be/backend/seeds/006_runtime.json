@@ -1,0 +1,26 @@
+{
+  "balance": {
+    "luckPerWisdom":0.25,"luckCap":3,"luckWeight":0.15,"healRegrow":20,"wisdomHeal":50,"pulseRadiusPerLevel":0.12,"pulsePerLevel":0.25,"pulseSlow":1.4,"criticalWave":1.2,"volatileChain":1.15,"fireDominion":1.25,"emberDuration":2,"fireSpreadRadius":100,"fireSpreadSeconds":2,"infernoEvery":5,"infernoRadius":140,"infernoDamage":38,"burstRadius":110,"burstDamage":35,"pvpContactSeconds":0.55,"pvpContactRadius":35,"pvpAttributionSeconds":8,"biteRadius":67,"biteAngle":1.8,"enemyContactSeconds":0.4,"enemySlowSpeed":0.5,"bossPartyScale":0.65,"bossDeathHeal":150,"bossDeathGold":30,"bossAtFraction":0.8,"enemySpawnDistance":500,"enemySpawnSpread":180,"bossSpawnDistance":470,"archerRetreatRadius":220,"archerHoldRadius":320,"archerRange":640,"archerRetreatSpeed":0.55,"archerAttackSeconds":2.2,"projectileSpeed":185,"projectileDamage":10,"bossProjectileDamage":16,"projectileSeconds":5,"bossPhaseFraction":0.5,"bossWarningSeconds":1,"bossChargeSeconds":0.85,"bossAbilitySeconds":6,"bossChargeSpeed":310,"bossProjectilesFirst":10,"bossProjectilesFinal":14,"bossAttackFirst":3.2,"bossAttackFinal":2.3,"bossProjectileSpeed":135,"foodScore":2,"growthUpgradeSegments":2,"deathGrowthOrbs":20,"deathGrowthValue":25
+  },
+  "spawning": {
+    "enemyStartSeconds":1.8,"enemyBaseCount":1,"enemyProgressCount":2.5,"enemyPlayerCount":0.6,"enemyMinimumSeconds":0.42,"enemyBaseSeconds":1.35,"enemyProgressSeconds":0.85,"bruteFrom":0.13,"bruteRoll":0.85,"archerFrom":0.08,"archerRoll":0.64,"swarmRoll":0.4,"foodBaseCount":4,"foodSeconds":1.4,"initialFoodWeights":{"growth":0.72,"xp":0.19,"heal":0.06,"gold":0.03},"foodWeights":{"growth":0.72,"xp":0.224,"heal":0.056},"upgradeFallback":["fire","poison","armor","growth"]
+  },
+  "loot": {
+    "killScore":{"boss":1500,"brute":35,"chaser":15,"swarm":15,"archer":15},"killXp":{"boss":160,"brute":5,"chaser":2,"swarm":2,"archer":2},"dropXp":{"boss":90,"brute":14,"chaser":6,"swarm":6,"archer":6},"growthChance":0.36,"healChance":0.13,"goldChance":0.12,"growthValue":25,"bossGrowthValue":100,"healValue":40
+  },
+  "bots": {
+    "upgradeRarityWeight":2,"upgradePreferenceWeight":3,"pulseRadius":130,"aimFrequency":1.8,"escapeThrottle":0.5,
+    "utilityWeights": {
+      "farmer":{"food":1.5,"pvp":0.5,"safety":1.2,"escape":1,"boss":1,"objective":1,"weakTarget":1,"risk":1},
+      "hunter":{"food":0.7,"pvp":1.8,"safety":1,"escape":1,"boss":1,"objective":1,"weakTarget":1.5,"risk":1},
+      "survivor":{"food":1,"pvp":0.4,"safety":2,"escape":1.7,"boss":0.4,"objective":1,"weakTarget":1,"risk":0.4},
+      "aggressor":{"food":1,"pvp":1.6,"safety":1,"escape":1,"boss":1.2,"objective":1,"weakTarget":1,"risk":1.7},
+      "objective":{"food":1,"pvp":0.8,"safety":1,"escape":1,"boss":1.5,"objective":2,"weakTarget":1,"risk":1}
+    }
+  },
+  "crown":{"scoreGain":1.1},
+  "world":{"evolutionEveryLevels":2},
+  "extraction":{"hitInterruptSeconds":0.25},
+  "objectives":{"pickupRadius":40,"meteorFoodCount":12,"meteorSpread":300,"goldenFoodCount":60,"hazardWarningSeconds":2},
+  "features":{"organs":true,"mutations":true,"keystones":true,"curses":true}
+}

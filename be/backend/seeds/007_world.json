@@ -1,0 +1,20 @@
+{
+  "biomeModifiers": [
+    {"id":"ancient_growth","biome":"forest","name":"Sinh trưởng cổ đại","fire":1,"lightning":1,"vision":1,"speed":1,"growth":1.15,"damage":0},
+    {"id":"dense_canopy","biome":"forest","name":"Tán rừng rậm","fire":1,"lightning":1,"vision":0.85,"speed":0.95,"growth":1.3,"damage":0},
+    {"id":"electromagnetic","biome":"cyber","name":"Bão điện từ","fire":1,"lightning":1.2,"vision":1,"speed":1,"growth":1,"damage":0},
+    {"id":"blackout","biome":"cyber","name":"Mất điện","fire":1,"lightning":1,"vision":0.7,"speed":1,"growth":1,"damage":0},
+    {"id":"ash_storm","biome":"volcano","name":"Bão tro","fire":1,"lightning":1,"vision":0.8,"speed":0.9,"growth":1,"damage":0},
+    {"id":"inferno","biome":"volcano","name":"Lõi địa ngục","fire":1.25,"lightning":1,"vision":1,"speed":1,"growth":1.15,"damage":2}
+  ],
+  "adaptiveGraphics":{"lowFps":42,"highFps":57,"downSeconds":2,"upSeconds":12,"cooldownSeconds":5,"initialLevel":2},
+  "bots": {
+    "evolutionPreferences": {
+      "farmer":[{"kind":"keystones","choice":"pacifist"},{"kind":"organs","choice":"stomach"},{"kind":"organs","choice":"eye"}],
+      "hunter":[{"kind":"mutations","choice":"twin_spine"},{"kind":"keystones","choice":"predator"},{"kind":"organs","choice":"adrenal"}],
+      "survivor":[{"kind":"mutations","choice":"armored_core"},{"kind":"organs","choice":"heart"},{"kind":"organs","choice":"brain"}],
+      "aggressor":[{"kind":"keystones","choice":"pyromaniac"},{"kind":"organs","choice":"reactor"},{"kind":"curses","choice":"void_heart"}],
+      "objective":[{"kind":"mutations","choice":"symbiosis"},{"kind":"organs","choice":"brain"},{"kind":"organs","choice":"heart"}]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+import {Registry,Histogram,Gauge,Counter,collectDefaultMetrics} from 'prom-client';
+import {trace} from '@opentelemetry/api';
+import {NodeSDK} from '@opentelemetry/sdk-node';
+import {OTLPTraceExporter} from '@opentelemetry/exporter-trace-otlp-http';
+export const registry=new Registry();
+collectDefaultMetrics({register:registry,prefix:'serpent_'});
+export const tickDuration=new Histogram({name:'serpent_room_tick_seconds',help:'Individual authoritative simulation tick duration',labelNames:['mode'],buckets:[.001,.005,.01,.02,.035,.045,.05,.1],registers:[registry]});
+export const totalTickDuration=new Histogram({name:'serpent_room_total_tick_seconds',help:'Simulation, bot AI and snapshot worker submission; excludes worker encoding',labelNames:['mode'],buckets:[.001,.005,.01,.02,.035,.045,.05,.1],registers:[registry]});
+export const snapshotDuration=new Histogram({name:'serpent_snapshot_seconds',help:'Per viewer AOI and encoding duration',labelNames:['mode'],buckets:[.001,.005,.01,.02,.05],registers:[registry]});
+export const traffic=new Counter({name:'serpent_wire_bytes_total',help:'Application message bytes before transport framing',labelNames:['direction','mode'],registers:[registry]});
+export const entities=new Gauge({name:'serpent_entities',help:'Active room entities',labelNames:['mode','kind','room'],registers:[registry]});
+export const resultCount=new Counter({name:'serpent_completed_lives_total',help:'Completed human lives submitted for persistence',labelNames:['mode','reason'],registers:[registry]});
+export const tracer=trace.getTracer('serpent-authority','0.3.0');
+export const telemetry=process.env.OTEL_EXPORTER_OTLP_ENDPOINT?new NodeSDK({traceExporter:new OTLPTraceExporter()}):null;
+telemetry?.start();

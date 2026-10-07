@@ -1,0 +1,192 @@
+{
+  "progression": {
+    "levelXp": 1000,
+    "seasonXp": 1000
+  },
+  "apex": {
+    "minimumLength": 60,
+    "minimumKills": 5,
+    "minimumScore": 3000,
+    "rewardXp": 100,
+    "rewardDna": 5,
+    "rewardScore": 500,
+    "rewardArtifacts": 10,
+    "buffSeconds": 30,
+    "buffDamage": 1.15
+  },
+  "balance": {
+    "fangsPerLevel": 0.22,
+    "elementsPerLevel": 0.25,
+    "hasteSpeedPerLevel": 0.09,
+    "hasteTurnPerLevel": 0.14,
+    "vitalityPerLevel": 0.18,
+    "growthPerLevel": 0.2,
+    "wisdomPerLevel": 0.2,
+    "lengthTurnPenalty": 0.025,
+    "dashSeconds": 0.42,
+    "dashCooldown": 6,
+    "pulseCooldown": 9,
+    "skillMinimumCooldown": 0.3,
+    "agilityPerLevel": 0.15,
+    "dashSpeed": 2.75,
+    "throttleSpeed": 0.24,
+    "dashInvulnerability": 0.46,
+    "hitInvulnerability": 0.38,
+    "armorReduction": 0.055,
+    "armorMaxReduction": 0.4,
+    "armorDamageTaken": 0.65,
+    "headContactDamage": 19,
+    "bodyContactDamage": 12,
+    "armorBodyDamage": 1.25,
+    "biteSeconds": 0.48,
+    "pvpDamage": 10,
+    "pvpRetaliation": 6,
+    "pvpScore": 250,
+    "pvpXp": 25,
+    "circleSeconds": 4,
+    "circleCooldown": 8,
+    "circleMinSegments": 11,
+    "circleClosure": 45,
+    "circleMinArea": 5000,
+    "circleDamage": 42,
+    "magnetRadius": 58,
+    "magnetPerLevel": 36,
+    "upgradeStackCap": 8,
+    "choiceSeconds": 5,
+    "choiceCount": 3,
+    "xpBase": 24,
+    "xpPerLevel": 12,
+    "xpExponent": 1.45,
+    "xpScale": 2,
+    "poisonSlow": 0.6,
+    "fireRadius": 84,
+    "poisonRadius": 95,
+    "firePerLevel": 0.1,
+    "goldScore": 5,
+    "survivalScore": 2
+  },
+  "speciesStats": {
+    "cobra": {
+      "speed": 1,
+      "hp": 1,
+      "bodyDamage": 1,
+      "poison": 1.3,
+      "critChance": 0,
+      "critDamage": 1
+    },
+    "python": {
+      "speed": 0.85,
+      "hp": 1.2,
+      "bodyDamage": 1.4,
+      "poison": 1,
+      "critChance": 0,
+      "critDamage": 1
+    },
+    "viper": {
+      "speed": 1.12,
+      "hp": 1,
+      "bodyDamage": 1,
+      "poison": 1,
+      "critChance": 0.18,
+      "critDamage": 1.8
+    }
+  },
+  "foodValues": {
+    "growth": 25,
+    "xp": 8,
+    "heal": 32,
+    "gold": 3
+  },
+  "raritySchedule": [
+    {
+      "age": 0,
+      "weights": [
+        70,
+        24,
+        5,
+        1,
+        0
+      ]
+    },
+    {
+      "age": 180,
+      "weights": [
+        55,
+        30,
+        12,
+        2.8,
+        0.2
+      ]
+    },
+    {
+      "age": 420,
+      "weights": [
+        40,
+        32,
+        20,
+        7,
+        1
+      ]
+    }
+  ],
+  "extraction": {
+    "carrierSpeed": 0.9,
+    "relicSeconds": 20,
+    "relicLifetime": 120,
+    "relicValue": 5
+  },
+  "objectives": {
+    "xpMultiplier": 3,
+    "shrineReward": 5,
+    "nestReward": 10,
+    "nestAttackRadius": 120,
+    "nestSpawnSeconds": 3,
+    "escortStart": 180,
+    "escortPeriod": 240,
+    "escortLifetime": 90,
+    "escortSpeed": 25,
+    "escortRadius": 160,
+    "escortDistance": 350,
+    "escortReward": 5,
+    "lootLifetime": 60
+  },
+  "raid": {
+    "attackSeconds": 3,
+    "attackRadius": 220,
+    "headRadius": 95,
+    "headHitRadius": 80,
+    "finalHpFraction": 0.2,
+    "sealedDamage": 0.2,
+    "artifactReward": 15,
+    "armorParts": 8,
+    "armorRadius": 155,
+    "coreRadius": 70,
+    "arenaRadius": 300,
+    "arenaSeconds": 10,
+    "arenaDamage": 8,
+    "poisonSeconds": 5,
+    "poisonRadius": 130,
+    "poisonDamage": 5,
+    "chainRadius": 180,
+    "chainDamage": 20,
+    "fireBodyDamage": 8
+  },
+  "bots": {
+    "aimErrors": [
+      0.18,
+      0.09,
+      0.03
+    ],
+    "populationSeconds": 0.5,
+    "dangerRadius": 160,
+    "retreatHp": 0.4,
+    "strongerRatio": 1.2
+  },
+  "network": {
+    "authRefreshSeconds": 5,
+    "maxMessagesPerSecond": 70,
+    "fullSnapshotSeconds": 5,
+    "snapshotWorkers": 2,
+    "maxBufferedBytes": 524288
+  }
+}

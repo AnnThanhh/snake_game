@@ -1,0 +1,24 @@
+groups:
+  - name: serpent-operations
+    rules:
+      - alert: SerpentServiceDown
+        expr: up{job=~"serpent-api|serpent-authority"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Serpent service metrics unavailable"
+      - alert: SerpentApiErrors
+        expr: sum(rate(serpent_http_responses_total{status=~"5.."}[5m])) / clamp_min(sum(rate(serpent_http_responses_total[5m])), 0.001) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "API 5xx response ratio above 5 percent"
+      - alert: SerpentResultOutboxStalled
+        expr: serpent_result_outbox_pending > 0 and serpent_result_outbox_oldest_seconds > 300
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Unacknowledged match results remain in the outbox"

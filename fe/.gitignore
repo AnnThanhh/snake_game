@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+public/v2/
+.env
+artifacts/
+*.log
+.cache/
+.data/

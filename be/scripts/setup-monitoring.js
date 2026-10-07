@@ -1,0 +1,9 @@
+import {readFile,appendFile,writeFile} from 'node:fs/promises';
+import {randomBytes} from 'node:crypto';
+const env=await readFile(new URL('../.env',import.meta.url),'utf8');
+if(!/^GRAFANA_ADMIN_PASSWORD=/m.test(env))await appendFile(new URL('../.env',import.meta.url),'\nGRAFANA_ADMIN_PASSWORD='+randomBytes(32).toString('hex')+'\n');
+const expressions=[['Simulation p95 (ms)','histogram_quantile(0.95, sum by(le,mode) (rate(serpent_room_tick_seconds_bucket[2m]))) * 1000'],['Total tick p95 (ms)','histogram_quantile(0.95, sum by(le,mode) (rate(serpent_room_total_tick_seconds_bucket[2m]))) * 1000'],['Wire bytes/sec','sum by(direction,mode) (rate(serpent_wire_bytes_total[2m]))'],['Entities','sum by(kind) (serpent_entities)'],['Process memory','serpent_process_resident_memory_bytes'],['Completed lives/sec','sum by(mode,reason) (rate(serpent_completed_lives_total[2m]))']];
+expressions.push(['API responses/sec','sum by(status) (rate(serpent_http_responses_total[2m]))'],['API response p95 (ms)','histogram_quantile(0.95, sum by(le) (rate(serpent_http_response_seconds_bucket[2m]))) * 1000'],['Pending result outbox','serpent_result_outbox_pending'],['Oldest pending result (seconds)','serpent_result_outbox_oldest_seconds']);
+const dashboard={uid:'serpent-v2',title:'Serpent V2 — Authority and API',schemaVersion:40,version:2,refresh:'5s',time:{from:'now-15m',to:'now'},panels:expressions.map(([title,expr],i)=>({id:i+1,title,type:'timeseries',datasource:{type:'prometheus',uid:'serpent-prometheus'},gridPos:{x:(i%2)*12,y:Math.floor(i/2)*8,w:12,h:8},targets:[{refId:'A',expr,legendFormat:'{{mode}} {{kind}} {{direction}} {{reason}} {{status}}'}]}))};
+await writeFile(new URL('../ops/monitoring/grafana/dashboards/serpent.json',import.meta.url),JSON.stringify(dashboard,null,2));
+console.log('Monitoring configured; credentials retained in .env.');

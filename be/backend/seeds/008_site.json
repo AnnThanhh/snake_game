@@ -1,0 +1,39 @@
+{
+  "origin":"",
+  "indexable":false,
+  "name":"Serpent Survivor",
+  "language":"vi",
+  "title":"Serpent Survivor – Game rắn sinh tồn online trên trình duyệt",
+  "description":"Chơi Serpent Survivor miễn phí trên trình duyệt: nuôi rắn, xây dựng cơ thể, chiến đấu trong Arena, phối hợp Co-op, đánh Hydra và thu thập di vật ở Extraction.",
+  "heading":"Serpent Survivor: game rắn sinh tồn và tiến hóa online",
+  "introduction":"Mỗi đốt thân là một lựa chọn xây dựng nhân vật. Trong Serpent Survivor, bạn ăn để lớn lên, chọn cơ quan và nguyên tố, săn quái hoặc tranh tài với người chơi khác. Game chạy trực tiếp trên trình duyệt, không cần cài đặt; bạn có thể chơi thử bằng tài khoản khách.",
+  "socialImage":"/social-cover.png",
+  "googleVerification":"",
+  "faq":[
+    {"question":"Serpent Survivor chơi như thế nào?","answer":"Dẫn rắn tới thức ăn để tăng trưởng và nhận kinh nghiệm. Khi lên cấp, chọn nâng cấp cho cơ thể; dùng lướt và xung lực để thoát hiểm hoặc chiến đấu. Các quyết định về chiều dài, cơ quan và nguyên tố tạo nên build của mỗi lượt."},
+    {"question":"Có cần tải game hoặc đăng ký tài khoản không?","answer":"Bạn chơi trực tiếp trên trình duyệt và có thể vào thử bằng tài khoản khách. Đăng nhập để lưu phần thưởng online, loài rắn đã mở khóa và lịch sử trận đấu. Kết quả Solo cục bộ không cộng vào ví tài khoản."},
+    {"question":"Có thể chơi cùng bạn bè không?","answer":"Có. Tạo phòng Co-op hoặc Raid rồi gửi mã phòng cho bạn bè. Những người trong phòng chọn Ready để bắt đầu. Arena và Crown cho phép tham gia thế giới đang diễn ra."},
+    {"question":"Game có hỗ trợ điện thoại không?","answer":"Giao diện có điều khiển chạm, nút kỹ năng và nút giữ rút lui trong Extraction. Hiệu năng phụ thuộc thiết bị và trình duyệt; bạn có thể chọn chất lượng đồ họa thấp hơn hoặc Auto."}
+  ],
+  "pages":[
+    {"slug":"huong-dan","title":"Cách chơi Serpent Survivor – Hướng dẫn cho người mới","description":"Tìm hiểu cách điều khiển rắn, thu thập thức ăn, chọn nâng cấp, cơ quan và phối hợp cùng bạn bè trong Serpent Survivor.","heading":"Hướng dẫn chơi Serpent Survivor","sections":[
+      {"heading":"Bắt đầu một lượt chơi","text":"Chọn loài rắn và chế độ ở trang chủ. Solo phù hợp để làm quen với chuyển động và kỹ năng. Open Arena đưa bạn vào thế giới có người chơi và bot. Khách có thể thử game; tài khoản giúp lưu tiến trình online."},
+      {"heading":"Điều khiển trên máy tính và điện thoại","text":"Di chuyển chuột hoặc chạm để dẫn hướng. Trên bàn phím, A/D để rẽ, W/S chỉnh tốc độ, Space để lướt và Q để tung xung lực. Phím 1/2/3 chọn nâng cấp; B mở lựa chọn tiến hóa. Trên điện thoại, dùng các nút kỹ năng trên màn hình."},
+      {"heading":"Xây dựng cơ thể và lựa chọn đánh đổi","text":"Thức ăn tăng trưởng giúp nối dài thân, kinh nghiệm mở các lựa chọn nâng cấp. Cơ quan gắn vào đốt cụ thể và có thể mất khi đốt đó bị phá. Keystone thay đổi lối chơi, còn lời nguyền đem lại sức mạnh đi kèm bất lợi. Một cơ thể dài có nhiều vị trí xây dựng nhưng cần nhiều không gian để xoay trở."},
+      {"heading":"Chơi cùng bạn bè","text":"Tạo phòng Co-op hoặc Raid, chia sẻ mã và chờ đồng đội tham gia. Mọi người cần Ready để bắt đầu. Trong Co-op, khép vòng quanh đồng đội đã gục để hồi sinh; hãy giữ vị trí và tránh bị phá vòng trong lúc cứu."},
+      {"heading":"Khi kết nối bị gián đoạn","text":"Game thử nối lại phòng và giữ danh tính trong thời gian cho phép. Rắn vẫn tồn tại trong mô phỏng và có thể bị thương. Nếu máy chủ hoặc phòng đã đóng, bạn cần bắt đầu một lượt mới."}
+    ]},
+    {"slug":"che-do-choi","title":"Các chế độ Serpent Survivor – Arena, Co-op, Raid và Extraction","description":"So sánh Solo, Co-op, Open Arena, Crown, Boss Raid và Extraction trong Serpent Survivor để chọn chế độ phù hợp với bạn.","heading":"Chọn chế độ sinh tồn phù hợp","sections":[
+      {"heading":"Solo và Co-op","text":"Solo là lượt sinh tồn cục bộ để học cách xây dựng cơ thể. Co-op là trận online hữu hạn, nơi đồng đội hỗ trợ và hồi sinh nhau. Lưu phần thưởng tài khoản yêu cầu một lượt online được máy chủ xác nhận."},
+      {"heading":"Open Arena và Crown","text":"Open Arena kết hợp săn quái, thức ăn, bot và PvP trong thế giới liên tục. Crown khuyến khích phát triển chiều dài để giữ vương miện; lợi thế đi kèm sự chú ý từ những người săn bạn. Các ngưỡng và phần thưởng có thể thay đổi theo phiên bản nội dung."},
+      {"heading":"Boss Raid: Ancient Hydra","text":"Phối hợp phá lớp giáp, xử lý các đầu nguyên tố và đánh lõi của Hydra. Những pha sau có vòng sống sót và cơ chế khép vòng để tạo cơ hội phản công. Chú ý cảnh báo đòn đánh và khoảng cách với đồng đội khi xuất hiện điện hoặc vùng độc."},
+      {"heading":"Extraction: giữ di vật hay tiếp tục mạo hiểm","text":"Thu thập di vật và tìm cổng khi nó mở. Đứng trong cổng, giữ E hoặc nút Rút lui để hoàn thành thao tác; trúng đòn mạnh sẽ ngắt tiến độ. Di vật còn mang theo có rủi ro mất khi chết. Phần thưởng được lưu khi server xác nhận rút lui thành công."}
+    ]},
+    {"slug":"xay-dung-co-the","title":"Build cơ thể trong Serpent Survivor – Cơ quan, nguyên tố và tiến hóa","description":"Tìm hiểu cách kết hợp đốt nguyên tố, cơ quan, keystone, lời nguyền và đột biến để tạo build trong game rắn sinh tồn Serpent Survivor.","heading":"Xây dựng cơ thể của riêng bạn","sections":[
+      {"heading":"Cơ quan và vị trí trên thân","text":"Tim hỗ trợ hồi phục các đốt lân cận; não tác động tới hồi chiêu, mắt tăng khả năng quan sát và dạ dày hỗ trợ tăng trưởng. Lò nguyên tố tăng sức mạnh các đốt nguyên tố ở cạnh. Sắp xếp vị trí cơ quan giúp bạn tận dụng liên kết giữa các đốt."},
+      {"heading":"Keystone định hình lối chơi","text":"Keystone có thể đổi cách bạn tăng trưởng, gây sát thương hoặc hoàn thành mục tiêu. Hãy đọc đầy đủ hiệu ứng trước khi chọn: một lợi thế lớn ở lối chơi này có thể hạn chế cách chơi khác."},
+      {"heading":"Lời nguyền luôn có đánh đổi","text":"Lời nguyền có thể tăng sát thương, kinh nghiệm hoặc phần thưởng nhưng đồng thời giảm sức bền, giới hạn chiều dài hoặc tiêu hao thân khi dùng kỹ năng. Không có lựa chọn phù hợp cho mọi tình huống; hãy cân nhắc chế độ và phần cơ thể còn lại."},
+      {"heading":"Đột biến và sự thay đổi của thế giới","text":"Các đột biến như nhánh thân hoặc cộng sinh mở thêm cách phối hợp. Biome và thời tiết có thể thay đổi tốc độ, tầm nhìn hoặc sức mạnh nguyên tố. Theo dõi trạng thái thế giới và đổi cách tiếp cận khi điều kiện bất lợi."}
+    ]}
+  ]
+}

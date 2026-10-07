@@ -1,0 +1,1014 @@
+{
+  "id": "overgrowth-v2-1",
+  "game": "0.3.0",
+  "balance": {
+    "speed": 143,
+    "turn": 4.5,
+    "headHp": 24,
+    "segmentHp": 34,
+    "armorHp": 72,
+    "spacing": 18,
+    "biteDamage": 22,
+    "fireDamage": 17,
+    "poisonDamage": 13,
+    "lightningDamage": 24,
+    "iceDamage": 12,
+    "regenAmount": 3,
+    "elementInterval": 0.85,
+    "burnDamage": 4,
+    "burnSeconds": 2,
+    "poisonSeconds": 3,
+    "lightningChains": 3,
+    "elementRadius": 100,
+    "foodGrowth": 25,
+    "growthPerSegment": 100,
+    "pulseDamage": 65,
+    "pulseRadius": 175,
+    "enemyScaleSeconds": 650
+  },
+  "upgrades": "v2-organs-1",
+  "species": [
+    {
+      "id": "cobra",
+      "name": "Cobra",
+      "title": "Nọc độc thức tỉnh",
+      "description": "Khởi đầu với đốt độc. Sát thương độc tăng 30%.",
+      "color": "#b69aff",
+      "startingSegment": "poison"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "title": "Pháo đài sống",
+      "description": "Khởi đầu với giáp. +40% sát thương thân, +20% máu đốt; di chuyển chậm hơn 15%.",
+      "color": "#edc078",
+      "startingSegment": "armor"
+    },
+    {
+      "id": "viper",
+      "name": "Viper",
+      "title": "Bản năng săn mồi",
+      "description": "Khởi đầu với đốt lửa. +12% tốc độ và 18% cơ hội chí mạng.",
+      "color": "#80e9b3",
+      "startingSegment": "fire"
+    }
+  ],
+  "upgradesList": [
+    {
+      "id": "fire",
+      "name": "Hỏa thể",
+      "description": "Thêm một đốt lửa, tự thiêu đốt kẻ địch xung quanh.",
+      "type": "segment",
+      "color": "#ffae67"
+    },
+    {
+      "id": "poison",
+      "name": "Độc thể",
+      "description": "Thêm một đốt độc, gây sát thương theo thời gian.",
+      "type": "segment",
+      "color": "#bc91ff"
+    },
+    {
+      "id": "armor",
+      "name": "Thiết giáp",
+      "description": "Thêm một đốt giáp bền bỉ, giảm sát thương nhận vào.",
+      "type": "segment",
+      "color": "#a7d3de"
+    },
+    {
+      "id": "fangs",
+      "name": "Nanh săn mồi",
+      "description": "Tăng 22% sát thương cắn và va chạm thân.",
+      "type": "offense",
+      "color": "#f7cf88"
+    },
+    {
+      "id": "haste",
+      "name": "Trườn như gió",
+      "description": "Tăng 9% tốc độ và 14% khả năng chuyển hướng.",
+      "type": "utility",
+      "color": "#a0f0c2"
+    },
+    {
+      "id": "magnet",
+      "name": "Sức hút hoang dã",
+      "description": "Tăng 36 đơn vị tầm hút thức ăn và kinh nghiệm.",
+      "type": "utility",
+      "color": "#8dd8ff"
+    },
+    {
+      "id": "growth",
+      "name": "Mầm sống",
+      "description": "Mọc thêm hai đốt và tăng 20% sinh trưởng từ thức ăn.",
+      "type": "growth",
+      "color": "#8cec9b"
+    },
+    {
+      "id": "vitality",
+      "name": "Vảy tái sinh",
+      "description": "Tăng 18% máu tối đa của mọi đốt và hồi đầy máu.",
+      "type": "defense",
+      "color": "#86d6c2"
+    },
+    {
+      "id": "elements",
+      "name": "Cộng hưởng",
+      "description": "Tăng 25% sát thương của các đốt lửa và độc.",
+      "type": "offense",
+      "color": "#ff96bb"
+    },
+    {
+      "id": "pulse",
+      "name": "Sóng chấn động",
+      "description": "Tăng 25% sát thương, 12% bán kính xung lực; hồi chiêu ngay.",
+      "type": "skill",
+      "color": "#8de8dc"
+    },
+    {
+      "id": "agility",
+      "name": "Bản năng thoát hiểm",
+      "description": "Giảm 15% hồi chiêu lướt và xung lực; hồi chiêu ngay.",
+      "type": "skill",
+      "color": "#a2c2ff"
+    },
+    {
+      "id": "wisdom",
+      "name": "Ký ức cổ xưa",
+      "description": "Tăng 20% kinh nghiệm, 0,25 May mắn cho lần roll sau và hồi 50 máu.",
+      "type": "utility",
+      "color": "#e7b8ff"
+    },
+    {
+      "id": "ice",
+      "name": "Băng thể",
+      "description": "Thêm một đốt băng thể.",
+      "type": "segment",
+      "color": "#9bddfa"
+    },
+    {
+      "id": "lightning",
+      "name": "Lôi thể",
+      "description": "Thêm một đốt lôi thể.",
+      "type": "segment",
+      "color": "#f5e895"
+    },
+    {
+      "id": "regen",
+      "name": "Sinh thể",
+      "description": "Thêm một đốt sinh thể.",
+      "type": "segment",
+      "color": "#9df3bb"
+    }
+  ],
+  "segments": {
+    "normal": {
+      "name": "Sinh trưởng",
+      "color": "#84eda6",
+      "icon": "●"
+    },
+    "fire": {
+      "name": "Hỏa thể",
+      "color": "#ffae67",
+      "icon": "✦"
+    },
+    "poison": {
+      "name": "Độc thể",
+      "color": "#bc91ff",
+      "icon": "◆"
+    },
+    "armor": {
+      "name": "Thiết giáp",
+      "color": "#a7d3de",
+      "icon": "⬡"
+    },
+    "ice": {
+      "name": "Băng thể",
+      "color": "#9bddfa",
+      "icon": "✧"
+    },
+    "lightning": {
+      "name": "Lôi thể",
+      "color": "#f5e895",
+      "icon": "✧"
+    },
+    "regen": {
+      "name": "Sinh thể",
+      "color": "#9df3bb",
+      "icon": "✧"
+    }
+  },
+  "rarities": [
+    {
+      "id": "COMMON",
+      "name": "Thường",
+      "color": "#b7c5ae",
+      "power": 1
+    },
+    {
+      "id": "RARE",
+      "name": "Hiếm",
+      "color": "#7dbdff",
+      "power": 1.35
+    },
+    {
+      "id": "EPIC",
+      "name": "Sử thi",
+      "color": "#c29aff",
+      "power": 1.8
+    },
+    {
+      "id": "LEGENDARY",
+      "name": "Huyền thoại",
+      "color": "#ffc369",
+      "power": 2.2
+    },
+    {
+      "id": "MYTHIC",
+      "name": "Thần thoại",
+      "color": "#ff82ae",
+      "power": 2.6
+    }
+  ],
+  "upgradeTags": {
+    "fire": [
+      "FIRE",
+      "ELEMENT",
+      "BODY",
+      "DAMAGE",
+      "BURN"
+    ],
+    "poison": [
+      "POISON",
+      "ELEMENT",
+      "BODY",
+      "DAMAGE"
+    ],
+    "armor": [
+      "BODY",
+      "DEFENSE"
+    ],
+    "fangs": [
+      "CRITICAL",
+      "DAMAGE"
+    ],
+    "haste": [
+      "MOBILITY"
+    ],
+    "magnet": [
+      "UTILITY",
+      "GROWTH"
+    ],
+    "growth": [
+      "GROWTH",
+      "BODY"
+    ],
+    "vitality": [
+      "REGEN",
+      "DEFENSE"
+    ],
+    "elements": [
+      "ELEMENT",
+      "DAMAGE"
+    ],
+    "pulse": [
+      "EXPLOSION",
+      "SKILL"
+    ],
+    "agility": [
+      "MOBILITY",
+      "SKILL"
+    ],
+    "wisdom": [
+      "LUCK",
+      "XP",
+      "UTILITY"
+    ],
+    "ice": [
+      "ELEMENT",
+      "BODY"
+    ],
+    "lightning": [
+      "ELEMENT",
+      "BODY"
+    ],
+    "regen": [
+      "ELEMENT",
+      "BODY"
+    ]
+  },
+  "traits": [
+    {
+      "id": "toxic_ignition",
+      "name": "Hỏa độc bùng nổ",
+      "description": "Quái vừa cháy vừa nhiễm độc phát nổ khi chết.",
+      "kind": "element",
+      "required": 2
+    },
+    {
+      "id": "critical_wave",
+      "name": "Sóng chí mạng",
+      "description": "Nanh và xung lực cộng hưởng: xung lực tăng 20% sát thương.",
+      "kind": "mechanical",
+      "required": 2
+    },
+    {
+      "id": "volatile_chain",
+      "name": "Chuỗi phản ứng",
+      "description": "Đốt lửa kề độc: sát thương nguyên tố tăng 15%.",
+      "kind": "adjacency",
+      "required": 2
+    },
+    {
+      "id": "fire_dominion",
+      "name": "Lãnh địa hỏa thể",
+      "description": "Có 3 đốt lửa: bán kính lửa tăng 25%.",
+      "kind": "threshold",
+      "required": 3
+    },
+    {
+      "id": "ember_crown",
+      "name": "Vương miện tro tàn",
+      "description": "Hai nâng cấp lửa từ Sử thi: thời gian cháy tăng gấp đôi.",
+      "kind": "rarity",
+      "required": 2
+    }
+  ],
+  "modes": [
+    {
+      "id": "arena",
+      "name": "Open Arena",
+      "description": "Đấu trường PvPvE liên tục",
+      "pvp": true,
+      "continuous": true,
+      "capacity": 10,
+      "duration": 1200
+    },
+    {
+      "id": "coop",
+      "name": "Co-op",
+      "description": "Cùng sống sót trong rừng cổ",
+      "pvp": false,
+      "continuous": false,
+      "capacity": 4,
+      "duration": 600
+    },
+    {
+      "id": "raid",
+      "name": "Hydra Raid",
+      "description": "Phá giáp, hạ ba đầu và khép vòng phong ấn",
+      "pvp": false,
+      "continuous": false,
+      "capacity": 8,
+      "duration": 900
+    },
+    {
+      "id": "crown",
+      "name": "Crown",
+      "description": "Tranh vương miện trong đấu trường",
+      "pvp": true,
+      "continuous": true,
+      "capacity": 10,
+      "duration": 1200
+    },
+    {
+      "id": "extraction",
+      "name": "Extraction",
+      "description": "Thu thập di vật và rút lui qua cổng",
+      "pvp": true,
+      "continuous": false,
+      "capacity": 10,
+      "duration": 1200
+    }
+  ],
+  "limits": {
+    "players": 30,
+    "segments": 120,
+    "enemies": 500,
+    "foods": 800,
+    "projectiles": 500,
+    "effects": 150
+  },
+  "network": {
+    "tickHz": 20,
+    "snapshotHz": 15,
+    "nearRadius": 800,
+    "midRadius": 1400,
+    "midHz": 5,
+    "farHz": 1,
+    "interpolationMs": 100,
+    "reconnectSeconds": 20,
+    "roomIdleSeconds": 120,
+    "tickWarnMs": 45
+  },
+  "world": {
+    "width": 3200,
+    "height": 2400,
+    "directorHz": 2,
+    "eventLoopSeconds": 1200,
+    "weatherSeconds": 120,
+    "spawnProtection": 3,
+    "respawnSeconds": 4,
+    "deathGrowthFraction": 0.28,
+    "repeatKillWindow": 90,
+    "repeatKillRewards": [
+      1,
+      0.7,
+      0.4,
+      0.2
+    ],
+    "initialFood": 300,
+    "initialSegments": 6,
+    "maxKeystones": 2,
+    "maxCurses": 3,
+    "organInterval": 5,
+    "branchInterval": 10,
+    "branchSpeedPenalty": 0.08,
+    "branchTurnPenalty": 0.15,
+    "branchOffset": 26,
+    "reviveSeconds": 3,
+    "reviveSegments": 3
+  },
+  "organs": [
+    {
+      "id": "heart",
+      "name": "Tim tái sinh",
+      "description": "Hồi 5% máu mỗi giây cho các đốt cạnh tim.",
+      "handler": "regen",
+      "amount": 0.05,
+      "reach": 5,
+      "color": "#ff8a99"
+    },
+    {
+      "id": "brain",
+      "name": "Não phụ",
+      "description": "Giảm hồi chiêu kỹ năng 10%.",
+      "handler": "cooldown",
+      "amount": 0.1,
+      "reach": 5,
+      "color": "#b9a4ff"
+    },
+    {
+      "id": "eye",
+      "name": "Mắt phụ",
+      "description": "Tăng tầm nhìn 25%, nhìn rõ trong sương.",
+      "handler": "vision",
+      "amount": 0.25,
+      "color": "#91dced"
+    },
+    {
+      "id": "stomach",
+      "name": "Dạ dày",
+      "description": "Tăng sinh trưởng thức ăn 20%.",
+      "handler": "growth",
+      "amount": 0.2,
+      "color": "#c9e68f"
+    },
+    {
+      "id": "adrenal",
+      "name": "Tuyến thượng thận",
+      "description": "Dưới 30% máu: tốc độ +25%, sát thương +20%.",
+      "handler": "adrenal",
+      "threshold": 0.3,
+      "speed": 0.25,
+      "damage": 0.2,
+      "color": "#ffc277"
+    },
+    {
+      "id": "reactor",
+      "name": "Lò nguyên tố",
+      "description": "Nguyên tố ở cạnh mạnh hơn 20%.",
+      "handler": "reactor",
+      "amount": 0.2,
+      "reach": 1,
+      "color": "#f4a3ff"
+    }
+  ],
+  "keystones": [
+    {
+      "id": "pyromaniac",
+      "name": "Kẻ cuồng hỏa",
+      "description": "Không chí mạng; sát thương cháy gấp ba.",
+      "handler": "pyromaniac",
+      "burn": 3
+    },
+    {
+      "id": "conductor",
+      "name": "Dẫn điện hoàn hảo",
+      "description": "Điện trực tiếp giảm 30%; thêm hai mục tiêu nối.",
+      "handler": "conductor",
+      "damage": 0.7,
+      "chains": 2
+    },
+    {
+      "id": "immortal",
+      "name": "Thân bất diệt",
+      "description": "Đầu chỉ còn 8 HP; thân hấp thụ thêm 25% sát thương.",
+      "handler": "immortal",
+      "headHp": 8,
+      "damageTaken": 0.75
+    },
+    {
+      "id": "predator",
+      "name": "Kẻ săn mồi",
+      "description": "Thức ăn không giúp dài thân; hạ địch cho sinh trưởng gấp ba.",
+      "handler": "predator",
+      "killGrowth": 3
+    },
+    {
+      "id": "pacifist",
+      "name": "Người hòa giải",
+      "description": "PvP giảm 50%; sinh trưởng thức ăn x2, thưởng mục tiêu x1,5.",
+      "handler": "pacifist",
+      "pvp": 0.5,
+      "growth": 2,
+      "objective": 1.5
+    }
+  ],
+  "curses": [
+    {
+      "id": "void_heart",
+      "name": "Tim hư không",
+      "description": "Sát thương +70%; giới hạn chiều dài giảm 30%.",
+      "handler": "void_heart",
+      "damage": 1.7,
+      "length": 0.7
+    },
+    {
+      "id": "blood_engine",
+      "name": "Động cơ máu",
+      "description": "Hồi chiêu giảm một nửa; dùng kỹ năng mất một đốt.",
+      "handler": "blood_engine",
+      "cooldown": 0.5,
+      "segmentCost": 1
+    },
+    {
+      "id": "greed",
+      "name": "Tham lam",
+      "description": "Vàng x3; thức ăn không hồi máu.",
+      "handler": "greed",
+      "gold": 3
+    },
+    {
+      "id": "fragile",
+      "name": "Tiến hóa mong manh",
+      "description": "Kinh nghiệm +50%; máu tối đa giảm 40%.",
+      "handler": "fragile",
+      "xp": 1.5,
+      "hp": 0.6
+    },
+    {
+      "id": "unstable",
+      "name": "Nguyên tố bất ổn",
+      "description": "Nguyên tố +80%; mỗi 10 giây tổn thương một đốt.",
+      "handler": "unstable",
+      "element": 1.8,
+      "interval": 10,
+      "damage": 18
+    }
+  ],
+  "events": [
+    {
+      "id": "meteor",
+      "name": "Mưa thiên thạch",
+      "at": 90,
+      "duration": 25,
+      "radius": 115,
+      "damage": 35,
+      "reward": 60
+    },
+    {
+      "id": "shrine",
+      "name": "Đền cổ thức tỉnh",
+      "at": 180,
+      "duration": 120,
+      "radius": 150,
+      "captureSeconds": 3,
+      "buff": 1.2
+    },
+    {
+      "id": "nest",
+      "name": "Tổ quái trỗi dậy",
+      "at": 300,
+      "duration": 90,
+      "hp": 800,
+      "reward": 150
+    },
+    {
+      "id": "boss",
+      "name": "Cổ thú xuất hiện",
+      "at": 480,
+      "duration": 120
+    },
+    {
+      "id": "void",
+      "name": "Vết nứt hư không",
+      "at": 660,
+      "duration": 60,
+      "radius": 180,
+      "damage": 16
+    },
+    {
+      "id": "golden",
+      "name": "Mùa vàng",
+      "at": 900,
+      "duration": 60,
+      "multiplier": 2
+    },
+    {
+      "id": "cataclysm",
+      "name": "Đại biến",
+      "at": 1200,
+      "duration": 45,
+      "radius": 200,
+      "damage": 25
+    }
+  ],
+  "weather": [
+    {
+      "id": "clear",
+      "name": "Quang đãng",
+      "fire": 1,
+      "burn": 1,
+      "lightning": 1,
+      "vision": 1,
+      "poison": 1,
+      "cooldown": 1
+    },
+    {
+      "id": "rain",
+      "name": "Mưa lớn",
+      "fire": 0.8,
+      "burn": 0.8,
+      "lightning": 1.2,
+      "vision": 1,
+      "poison": 1,
+      "cooldown": 1
+    },
+    {
+      "id": "heat",
+      "name": "Nắng nóng",
+      "fire": 1.25,
+      "burn": 1,
+      "lightning": 1,
+      "vision": 1,
+      "poison": 1,
+      "cooldown": 1
+    },
+    {
+      "id": "fog",
+      "name": "Sương độc",
+      "fire": 1,
+      "burn": 1,
+      "lightning": 1,
+      "vision": 0.75,
+      "poison": 1.15,
+      "cooldown": 1
+    },
+    {
+      "id": "solar",
+      "name": "Bão mặt trời",
+      "fire": 1,
+      "burn": 1,
+      "lightning": 1.2,
+      "vision": 1,
+      "poison": 1,
+      "cooldown": 0.8
+    },
+    {
+      "id": "dark",
+      "name": "Đêm sâu",
+      "fire": 1,
+      "burn": 1,
+      "lightning": 1,
+      "vision": 0.6,
+      "poison": 1,
+      "cooldown": 1
+    }
+  ],
+  "biomes": [
+    {
+      "id": "forest",
+      "name": "Rừng cổ",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 2400,
+      "color": "#1b2920",
+      "damage": 0
+    },
+    {
+      "id": "cyber",
+      "name": "Rừng cơ giới",
+      "x": 1600,
+      "y": 0,
+      "width": 1600,
+      "height": 1200,
+      "color": "#172a30",
+      "damage": 0,
+      "lightning": 1.2
+    },
+    {
+      "id": "volcano",
+      "name": "Miệng núi lửa",
+      "x": 1600,
+      "y": 1200,
+      "width": 1600,
+      "height": 1200,
+      "color": "#34251d",
+      "damage": 4,
+      "fire": 1.2
+    }
+  ],
+  "extraction": {
+    "period": 180,
+    "openSeconds": 30,
+    "channelSeconds": 4,
+    "radius": 90,
+    "deathLoss": 0.5,
+    "artifactDna": 2,
+    "maxArtifacts": 100,
+    "heavyHit": 12
+  },
+  "raid": {
+    "spawnAt": 15,
+    "hp": 15000,
+    "armorHp": 4000,
+    "headHp": 1800,
+    "coreHp": 2500,
+    "headElements": [
+      "fire",
+      "poison",
+      "lightning"
+    ],
+    "phaseNames": [
+      "Phá giáp",
+      "Ba đầu nguyên tố",
+      "Lõi năng lượng",
+      "Vòng phong ấn",
+      "Phản vòng"
+    ],
+    "circleSeconds": 3,
+    "counterWarning": 3,
+    "counterRadius": 230,
+    "counterDamage": 45,
+    "rewardDna": 30
+  },
+  "crown": {
+    "minimumLength": 20,
+    "growth": 1.25,
+    "xp": 1.2,
+    "scorePerSecond": 10,
+    "bountyGold": 30
+  },
+  "rewards": {
+    "goldPerSeconds": 15,
+    "goldPerKill": 2,
+    "goldPerPvpKill": 20,
+    "maxGold": 2000,
+    "maxDna": 500,
+    "mastery": {
+      "seconds": 1,
+      "kills": 10,
+      "pvpKills": 50,
+      "metaUpgrade": "field_notes",
+      "metaMultiplier": 0.05
+    },
+    "map": "The Overgrowth"
+  },
+  "graphics": [
+    {
+      "id": "low",
+      "name": "Thấp",
+      "particles": 30,
+      "bodyStride": 3,
+      "resolution": 1
+    },
+    {
+      "id": "medium",
+      "name": "Vừa",
+      "particles": 75,
+      "bodyStride": 2,
+      "resolution": 1.25
+    },
+    {
+      "id": "high",
+      "name": "Cao",
+      "particles": 150,
+      "bodyStride": 1,
+      "resolution": 1.5
+    },
+    {
+      "id": "ultra",
+      "name": "Rất cao",
+      "particles": 250,
+      "bodyStride": 1,
+      "resolution": 2
+    }
+  ],
+  "enemies": {
+    "chaser": {
+      "hp": 34,
+      "radius": 13,
+      "speed": 69,
+      "damage": 8
+    },
+    "swarm": {
+      "hp": 15,
+      "radius": 8,
+      "speed": 105,
+      "damage": 5
+    },
+    "brute": {
+      "hp": 155,
+      "radius": 24,
+      "speed": 43,
+      "damage": 19
+    },
+    "archer": {
+      "hp": 47,
+      "radius": 14,
+      "speed": 58,
+      "damage": 10
+    },
+    "boss": {
+      "hp": 1900,
+      "radius": 63,
+      "speed": 55,
+      "damage": 24
+    }
+  },
+  "hybrids": [
+    {
+      "id": "toxic_flame",
+      "name": "Hỏa độc",
+      "requires": [
+        "fire",
+        "poison"
+      ],
+      "handler": "explosion",
+      "damage": 35,
+      "radius": 110
+    },
+    {
+      "id": "storm_ice",
+      "name": "Bão băng",
+      "requires": [
+        "ice",
+        "lightning"
+      ],
+      "handler": "freeze_chain",
+      "slow": 2
+    },
+    {
+      "id": "living_armor",
+      "name": "Giáp sống",
+      "requires": [
+        "armor",
+        "regen"
+      ],
+      "handler": "regeneration",
+      "heal": 4
+    }
+  ],
+  "evolutions": [
+    {
+      "id": "inferno",
+      "name": "Hỏa ngục",
+      "element": "fire",
+      "required": 3,
+      "damage": 1.25
+    },
+    {
+      "id": "tempest",
+      "name": "Bão điện",
+      "element": "lightning",
+      "required": 3,
+      "damage": 1.25
+    },
+    {
+      "id": "glacier",
+      "name": "Băng hà",
+      "element": "ice",
+      "required": 3,
+      "damage": 1.25
+    }
+  ],
+  "mutations": [
+    {
+      "id": "twin_spine",
+      "name": "Song sống",
+      "description": "Tạo nhánh thân sau mỗi 10 đốt, tăng diện tích chịu đòn.",
+      "handler": "branch"
+    },
+    {
+      "id": "armored_core",
+      "name": "Lõi bọc giáp",
+      "description": "Đốt giáp tăng độ bền 20%.",
+      "handler": "armor",
+      "hp": 1.2
+    },
+    {
+      "id": "symbiosis",
+      "name": "Cộng sinh",
+      "description": "Hồi máu đồng đội ở gần; hiệu ứng chồng giảm dần.",
+      "handler": "aura",
+      "radius": 180,
+      "heal": 3
+    }
+  ],
+  "season": {
+    "id": "season-v2",
+    "name": "Mùa đột biến",
+    "mechanic": "mutation",
+    "startsAt": "2026-09-01T00:00:00Z",
+    "endsAt": "2027-09-01T00:00:00Z"
+  },
+  "resultReasons": [
+    "death",
+    "leave",
+    "victory",
+    "defeat",
+    "extracted"
+  ],
+  "achievements": [
+    {
+      "id": "first_hunt",
+      "field": "kills",
+      "minimum": 1
+    },
+    {
+      "id": "survivor",
+      "field": "duration",
+      "minimum": 60
+    },
+    {
+      "id": "synergy",
+      "field": "traits",
+      "minimum": 1
+    }
+  ],
+  "bots": {
+    "names": [
+      "Raven",
+      "Nova",
+      "Moss",
+      "Ember",
+      "Fern",
+      "Echo",
+      "Ash",
+      "Orion",
+      "Cedar",
+      "Luna",
+      "Reed",
+      "Flint",
+      "Willow",
+      "Frost",
+      "Dune",
+      "Sage",
+      "Iris",
+      "Onyx"
+    ],
+    "personalities": [
+      "farmer",
+      "hunter",
+      "survivor",
+      "aggressor",
+      "objective"
+    ],
+    "reactions": [
+      0.4,
+      0.24,
+      0.15
+    ],
+    "perception": 650,
+    "maxBots": 18,
+    "targetOffset": 2,
+    "preferences": {
+      "farmer": [
+        "growth",
+        "magnet",
+        "wisdom"
+      ],
+      "hunter": [
+        "fangs",
+        "haste",
+        "pulse"
+      ],
+      "survivor": [
+        "armor",
+        "vitality",
+        "agility"
+      ],
+      "aggressor": [
+        "fire",
+        "poison",
+        "fangs"
+      ],
+      "objective": [
+        "elements",
+        "pulse",
+        "fire"
+      ]
+    }
+  }
+}

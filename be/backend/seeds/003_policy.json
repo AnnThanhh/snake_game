@@ -1,0 +1,382 @@
+{
+  "roles": {
+    "USER": [
+      "player:profile:read_own",
+      "player:profile:update_own",
+      "player:inventory:read_own",
+      "player:progression:read_own",
+      "match:join",
+      "match:leave",
+      "leaderboard:read",
+      "shop:read",
+      "shop:purchase",
+      "season:read",
+      "report:create"
+    ],
+    "MODERATOR": [
+      "player:read",
+      "player:mute",
+      "player:unmute",
+      "player:kick",
+      "player:temporary_ban",
+      "player:report:read",
+      "player:report:resolve",
+      "match:spectate",
+      "admin:panel:access"
+    ],
+    "QA": [
+      "player:read",
+      "match:spectate",
+      "qa:debug_menu",
+      "qa:spawn_enemy",
+      "qa:spawn_boss",
+      "qa:grant_upgrade",
+      "qa:set_length",
+      "qa:set_level",
+      "qa:teleport",
+      "qa:force_event",
+      "admin:panel:access"
+    ],
+    "DEVELOPER": [
+      "dev:server_metrics",
+      "dev:room_inspect",
+      "qa:*",
+      "admin:panel:access"
+    ],
+    "GAME_MASTER": [
+      "gm:start_event",
+      "gm:spawn_boss",
+      "match:spectate",
+      "admin:panel:access"
+    ],
+    "ADMIN": [
+      "player:*",
+      "game:*",
+      "economy:*",
+      "inventory:*",
+      "progression:*",
+      "match:*",
+      "leaderboard:*",
+      "moderation:*",
+      "whitelist:*",
+      "content:read",
+      "admin:audit:read",
+      "admin:panel:access"
+    ],
+    "SUPER_ADMIN": [
+      "*",
+      "admin:panel:access"
+    ]
+  },
+  "permissions": [
+    "player:profile:read_own",
+    "player:profile:update_own",
+    "player:inventory:read_own",
+    "player:progression:read_own",
+    "match:join",
+    "match:leave",
+    "leaderboard:read",
+    "shop:read",
+    "shop:purchase",
+    "season:read",
+    "report:create",
+    "player:read",
+    "player:mute",
+    "player:unmute",
+    "player:kick",
+    "player:temporary_ban",
+    "player:report:read",
+    "player:report:resolve",
+    "match:spectate",
+    "qa:debug_menu",
+    "qa:spawn_enemy",
+    "qa:spawn_boss",
+    "qa:grant_upgrade",
+    "qa:set_length",
+    "qa:set_level",
+    "qa:teleport",
+    "qa:force_event",
+    "dev:server_metrics",
+    "dev:room_inspect",
+    "qa:*",
+    "gm:start_event",
+    "gm:spawn_boss",
+    "player:*",
+    "game:*",
+    "economy:*",
+    "inventory:*",
+    "progression:*",
+    "match:*",
+    "leaderboard:*",
+    "moderation:*",
+    "whitelist:*",
+    "content:read",
+    "admin:audit:read",
+    "*",
+    "player:ban",
+    "player:unban",
+    "player:currency:grant",
+    "player:currency:remove",
+    "player:progression:max",
+    "player:progression:set",
+    "player:progression:reset",
+    "player:inventory:grant",
+    "player:inventory:remove",
+    "player:snake:unlock",
+    "player:snake:lock",
+    "whitelist:read",
+    "whitelist:create",
+    "whitelist:update",
+    "whitelist:delete",
+    "authorization:roles:manage",
+    "authorization:permissions:manage",
+    "authorization:overrides:manage",
+    "system:configure",
+    "admin:panel:access",
+    "content:manage",
+    "authorization:permissions:create"
+  ],
+  "environments": [
+    "LOCAL",
+    "DEVELOPMENT",
+    "STAGING",
+    "PRODUCTION"
+  ],
+  "whitelistTypes": [
+    "BETA_ACCESS",
+    "QA_ACCESS",
+    "DEV_ACCESS",
+    "ADMIN_PANEL",
+    "PRIVATE_SERVER",
+    "TEST_SERVER",
+    "EARLY_ACCESS",
+    "TOURNAMENT",
+    "CONTENT_CREATOR",
+    "INTERNAL_STAFF",
+    "FEATURE_ACCESS",
+    "IP_ALLOWLIST",
+    "MAINTENANCE_BYPASS"
+  ],
+  "scopes": [
+    "GLOBAL",
+    "FEATURE",
+    "SERVER",
+    "ROOM",
+    "REGION",
+    "SEASON",
+    "EVENT",
+    "ENVIRONMENT"
+  ],
+  "caps": {
+    "gold": 1000000,
+    "dna": 100000,
+    "evolution_points": 100000,
+    "mastery": 100000,
+    "level": 100,
+    "season": 50
+  },
+  "registration": {
+    "role": "USER",
+    "species": "cobra"
+  },
+  "security": {
+    "panelPermission": "admin:panel:access",
+    "panelWhitelist": "ADMIN_PANEL",
+    "rootRole": "SUPER_ADMIN",
+    "mfaMinutes": 15,
+    "mfaAttempts": 6,
+    "temporaryBanDays": 7,
+    "cacheSeconds": 30,
+    "sessionDays": 7,
+    "ticketSeconds": 30,
+    "requestRate": 60
+  },
+  "commands": {
+    "currency": [
+      "player:currency:grant",
+      "player:currency:remove"
+    ],
+    "max": [
+      "player:progression:max"
+    ],
+    "unlock-all": [
+      "player:snake:unlock"
+    ],
+    "unlock": [
+      "player:snake:unlock"
+    ],
+    "inventory": [
+      "player:inventory:grant",
+      "player:inventory:remove"
+    ],
+    "progression": [
+      "player:progression:set"
+    ],
+    "reset": [
+      "player:progression:reset"
+    ],
+    "ban": [
+      "player:ban",
+      "player:temporary_ban"
+    ],
+    "unban": [
+      "player:unban"
+    ],
+    "mute": [
+      "player:mute"
+    ],
+    "unmute": [
+      "player:unmute"
+    ],
+    "roles": [
+      "authorization:roles:manage"
+    ],
+    "overrides": [
+      "authorization:overrides:manage"
+    ]
+  },
+  "access": {
+    "joinPermission": "match:join",
+    "maintenanceWhitelist": "MAINTENANCE_BYPASS",
+    "featureWhitelist": "FEATURE_ACCESS",
+    "privateWhitelist": "PRIVATE_SERVER"
+  },
+  "settings": {
+    "maintenance": {
+      "type": "boolean"
+    },
+    "private_server": {
+      "type": "boolean"
+    },
+    "production_debug": {
+      "type": "boolean"
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "arena": {
+          "type": "boolean"
+        },
+        "coop": {
+          "type": "boolean"
+        },
+        "raid": {
+          "type": "boolean"
+        },
+        "extraction": {
+          "type": "boolean"
+        },
+        "crown": {
+          "type": "boolean"
+        },
+        "organ_system_v2": {
+          "type": "boolean"
+        },
+        "branching_body_v2": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "inventory": [
+    [
+      "artifact",
+      "Di vật cổ",
+      "resource",
+      10000
+    ],
+    [
+      "meteor_shard",
+      "Mảnh thiên thạch",
+      "resource",
+      10000
+    ],
+    [
+      "skin_moss",
+      "Sắc rêu",
+      "cosmetic",
+      1
+    ],
+    [
+      "skin_ember",
+      "Sắc than hồng",
+      "cosmetic",
+      1
+    ],
+    [
+      "skin_crystal",
+      "Sắc pha lê",
+      "cosmetic",
+      1
+    ]
+  ],
+  "endpoints": {
+    "player:profile:read_own": "player:profile:read_own",
+    "player:profile:update_own": "player:profile:update_own",
+    "player:inventory:read_own": "player:inventory:read_own",
+    "player:progression:read_own": "player:progression:read_own",
+    "match:join": "match:join",
+    "match:leave": "match:leave",
+    "leaderboard:read": "leaderboard:read",
+    "shop:read": "shop:read",
+    "shop:purchase": "shop:purchase",
+    "season:read": "season:read",
+    "report:create": "report:create",
+    "player:read": "player:read",
+    "player:mute": "player:mute",
+    "player:unmute": "player:unmute",
+    "player:kick": "player:kick",
+    "player:temporary_ban": "player:temporary_ban",
+    "player:report:read": "player:report:read",
+    "player:report:resolve": "player:report:resolve",
+    "match:spectate": "match:spectate",
+    "qa:debug_menu": "qa:debug_menu",
+    "qa:spawn_enemy": "qa:spawn_enemy",
+    "qa:spawn_boss": "qa:spawn_boss",
+    "qa:grant_upgrade": "qa:grant_upgrade",
+    "qa:set_length": "qa:set_length",
+    "qa:set_level": "qa:set_level",
+    "qa:teleport": "qa:teleport",
+    "qa:force_event": "qa:force_event",
+    "dev:server_metrics": "dev:server_metrics",
+    "dev:room_inspect": "dev:room_inspect",
+    "qa:*": "qa:*",
+    "gm:start_event": "gm:start_event",
+    "gm:spawn_boss": "gm:spawn_boss",
+    "player:*": "player:*",
+    "game:*": "game:*",
+    "economy:*": "economy:*",
+    "inventory:*": "inventory:*",
+    "progression:*": "progression:*",
+    "match:*": "match:*",
+    "leaderboard:*": "leaderboard:*",
+    "moderation:*": "moderation:*",
+    "whitelist:*": "whitelist:*",
+    "content:read": "content:read",
+    "admin:audit:read": "admin:audit:read",
+    "*": "*",
+    "player:ban": "player:ban",
+    "player:unban": "player:unban",
+    "player:currency:grant": "player:currency:grant",
+    "player:currency:remove": "player:currency:remove",
+    "player:progression:max": "player:progression:max",
+    "player:progression:set": "player:progression:set",
+    "player:progression:reset": "player:progression:reset",
+    "player:inventory:grant": "player:inventory:grant",
+    "player:inventory:remove": "player:inventory:remove",
+    "player:snake:unlock": "player:snake:unlock",
+    "player:snake:lock": "player:snake:lock",
+    "whitelist:read": "whitelist:read",
+    "whitelist:create": "whitelist:create",
+    "whitelist:update": "whitelist:update",
+    "whitelist:delete": "whitelist:delete",
+    "authorization:roles:manage": "authorization:roles:manage",
+    "authorization:permissions:manage": "authorization:permissions:manage",
+    "authorization:overrides:manage": "authorization:overrides:manage",
+    "system:configure": "system:configure",
+    "admin:panel:access": "admin:panel:access",
+    "content:manage": "content:manage",
+    "authorization:permissions:create": "authorization:permissions:create"
+  }
+}

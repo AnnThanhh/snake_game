@@ -1,0 +1,233 @@
+{
+  "uid": "serpent-v2",
+  "title": "Serpent V2 — Authority and API",
+  "schemaVersion": 40,
+  "version": 2,
+  "refresh": "5s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Simulation p95 (ms)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95, sum by(le,mode) (rate(serpent_room_tick_seconds_bucket[2m]))) * 1000",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Total tick p95 (ms)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95, sum by(le,mode) (rate(serpent_room_total_tick_seconds_bucket[2m]))) * 1000",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Wire bytes/sec",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(direction,mode) (rate(serpent_wire_bytes_total[2m]))",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Entities",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(kind) (serpent_entities)",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Process memory",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "serpent_process_resident_memory_bytes",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Completed lives/sec",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(mode,reason) (rate(serpent_completed_lives_total[2m]))",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "API responses/sec",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by(status) (rate(serpent_http_responses_total[2m]))",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "API response p95 (ms)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95, sum by(le) (rate(serpent_http_response_seconds_bucket[2m]))) * 1000",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Pending result outbox",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 32,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "serpent_result_outbox_pending",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Oldest pending result (seconds)",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "serpent-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 32,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "serpent_result_outbox_oldest_seconds",
+          "legendFormat": "{{mode}} {{kind}} {{direction}} {{reason}} {{status}}"
+        }
+      ]
+    }
+  ]
+}

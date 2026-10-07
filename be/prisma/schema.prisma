@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client"
+  output = "../generated/prisma"
+  moduleFormat = "esm"
+  importFileExtension = "js"
+}
+datasource db {
+  provider = "postgresql"
+}
+// Additive SQL migrations remain authoritative. Prisma is the typed read model.
+model GameCatalog {
+  id String @id
+  data Json
+  published Boolean @default(false)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  @@map("game_catalogs")
+}
+model RuntimeConfiguration {
+  id Boolean @id @default(true)
+  catalogId String @map("catalog_id")
+  @@map("runtime_configuration")
+}
+model Permission {
+  code String @id
+  description String @default("")
+  @@map("permissions")
+}
+model Role {
+  code String @id
+  name String
+  priority Int @default(0)
+  isSystem Boolean @default(true) @map("is_system")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
+  @@map("roles")
+}

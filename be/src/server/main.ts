@@ -1,0 +1,35 @@
+import http from 'node:http';
+import {Server,matchMaker} from '@colyseus/core';
+import {WebSocketTransport} from '@colyseus/ws-transport';
+import {RedisPresence} from '@colyseus/redis-presence';
+import {RedisDriver} from '@colyseus/redis-driver';
+import {ArenaRoom} from './arena-room.js';
+import {redis,persistence,secret,catalog,runtimeConfiguration} from './runtime.js';
+import {registry,telemetry} from './metrics.js';
+import {observeResponse,operationalLog} from '../../backend/observability.js';
+import {createReadiness} from '../../backend/readiness.js';
+import {Gauge} from 'prom-client';
+await redis.connect();
+const initialCatalog=await catalog();
+const server=http.createServer();
+let stopping=false;
+const ready=createReadiness(async()=>{if(stopping)return false;await redis.ping();const r=await fetch(new URL('/readyz',process.env.BACKEND_URL||'http://127.0.0.1:3001'),{signal:AbortSignal.timeout(1500)});return r.ok&&(await r.json()).ok===true;});
+new Gauge({name:'serpent_result_outbox_pending',help:'Pending result files at the last outbox scan',registers:[registry],collect(){this.set(persistence.status().pending);}});
+new Gauge({name:'serpent_result_outbox_oldest_seconds',help:'Age of the oldest result at the last outbox scan',registers:[registry],collect(){this.set(persistence.status().oldestSeconds);}});
+new Gauge({name:'serpent_log_dropped_records',help:'Operational log records dropped by the bounded writer',registers:[registry],collect(){this.set(operationalLog.stats().dropped);}});
+new Gauge({name:'serpent_log_storage_failures',help:'Consecutive log storage failures',registers:[registry],collect(){this.set(operationalLog.stats().failures);}});
+const game=new Server({transport:new WebSocketTransport({server,maxPayload:16384}),presence:new RedisPresence(process.env.REDIS_URL!),driver:new RedisDriver(process.env.REDIS_URL!),greet:false,gracefullyShutdown:false,express:app=>{
+ app.use((req,res,next)=>{observeResponse(req,res,operationalLog);next();});
+ app.get('/livez',(_req,res)=>res.status(stopping?503:200).json({version:1,ok:!stopping}));
+ app.get('/readyz',async(_req,res)=>{const state=stopping?{version:1,ok:false}:await ready();res.setHeader('Cache-Control','no-store');res.status(state.ok?200:503).json(state);});
+ app.get('/health',async(_req,res)=>{try{const rooms=await matchMaker.query({name:'v2'}),active=rooms.filter(r=>r.metadata?.state==='playing'),rates=active.map(r=>r.metadata?.tickRate).filter(Number.isFinite);res.json({ok:true,transport:'colyseus',presence:'redis',rooms:rooms.length,inGame:active.reduce((n,r)=>n+r.clients,0),targetTickRate:initialCatalog.network.tickHz,snapshotRate:initialCatalog.network.snapshotHz,tickRate:rates.length?rates.reduce((n,v)=>n+v,0)/rates.length:null,arenaCapacity:initialCatalog.modes.find(m=>m.id==='arena')?.capacity,roomCapacity:initialCatalog.modes.find(m=>m.id==='coop')?.capacity,prototype:false});}catch{res.status(503).json({ok:false});}});
+ app.get('/metrics',async(_req,res)=>{res.setHeader('content-type',registry.contentType);res.end(await registry.metrics());});
+ app.post('/internal/presence',async(req,res)=>{if(req.headers['x-game-secret']!==secret){res.status(403).end();return;}const id=req.query.id;if(typeof id!=='string'||!/^[A-Za-z0-9][A-Za-z0-9_-]{15,63}$/.test(id)){res.status(400).end();return;}const now=Date.now();try{const ok=await redis.eval("redis.call('ZREMRANGEBYSCORE',KEYS[1],'-inf',ARGV[1]); if redis.call('ZCARD',KEYS[1])>=tonumber(ARGV[4]) and not redis.call('ZSCORE',KEYS[1],ARGV[3]) then return 0 end; redis.call('ZADD',KEYS[1],ARGV[2],ARGV[3]); redis.call('EXPIRE',KEYS[1],ARGV[5]); return 1",{keys:['serpent:presence'],arguments:[String(now-runtimeConfiguration.operations.presenceTtlSeconds*1000),String(now),id,String(runtimeConfiguration.operations.presenceMaxEntries),String(runtimeConfiguration.operations.presenceTtlSeconds*2)]});res.status(ok?200:503).json({ok:Boolean(ok)});}catch{res.status(503).end();}});
+ app.get('/rooms',async(_req,res)=>{try{const rooms=await matchMaker.query({name:'v2'});await redis.zRemRangeByScore('serpent:presence','-inf',Date.now()-runtimeConfiguration.operations.presenceTtlSeconds*1000);const online=await redis.zCard('serpent:presence');res.json({online,rooms:rooms.map(r=>({id:r.roomId,code:r.roomId,clients:r.clients,maxPlayers:r.maxClients,locked:r.locked,...r.metadata}))});}catch{res.status(503).end();}});
+}});
+game.define('v2',ArenaRoom).filterBy(['mode']);
+await game.listen(Number(process.env.REALTIME_PORT||3002),'127.0.0.1');
+const address=server.address();
+operationalLog.info('service.ready');process.send?.({type:'ready',port:typeof address==='object'?address?.port:undefined});
+async function stop(){if(stopping)return;stopping=true;await game.gracefullyShutdown(false);await persistence.close();await redis.quit();await telemetry?.shutdown();await operationalLog.close();process.exitCode=0;process.disconnect?.();}
+for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>void stop());process.on('message',(m:any)=>{if(m?.type==='shutdown')void stop();});

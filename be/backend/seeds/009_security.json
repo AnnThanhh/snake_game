@@ -1,0 +1,72 @@
+{
+  "security": {
+    "trustedProxyAddresses": ["127.0.0.1", "::1"],
+    "authenticatedRequestRate": 180,
+    "restrictedSessionMinutes": 15,
+    "ipAllowlistRequired": false,
+    "ipWhitelistType": "IP_ALLOWLIST",
+    "usernameMin": 3,
+    "usernameMax": 24,
+    "passwordMin": 10,
+    "passwordMax": 128,
+    "displayNameMax": 24,
+    "historyLimit": 30,
+    "leaderboardLimit":50,
+    "notificationLimit": 30,
+    "reportDailyLimit": 10,
+    "reportCooldownSeconds": 30,
+    "reportReasonMin": 8,
+    "reportReasonMax": 1000,
+    "evidenceUrlMax": 1000,
+    "appealDailyLimit": 3,
+    "securityEventLimit": 100,
+    "adminReasonMin": 8,
+    "adminReasonMax": 1000
+  },
+  "moderation": {
+    "appealStatuses":[{"id":"resolved","name":"Đã xem xét"},{"id":"dismissed","name":"Giữ quyết định"}],
+    "reportCategories": [
+      {"id":"cheating","name":"Nghi dùng hack / gian lận"},
+      {"id":"exploit","name":"Lợi dụng lỗi trò chơi"},
+      {"id":"harassment","name":"Quấy rối / hành vi không phù hợp"},
+      {"id":"impersonation","name":"Giả mạo / lừa đảo"},
+      {"id":"other","name":"Khác"}
+    ],
+    "reportStatuses": [
+      {"id":"open","name":"Chờ xem xét"},
+      {"id":"reviewing","name":"Đang kiểm tra"},
+      {"id":"resolved","name":"Đã xử lý"},
+      {"id":"dismissed","name":"Chưa đủ cơ sở"}
+    ],
+    "scopes": [
+      {"id":"ACCOUNT","name":"Tài khoản"},
+      {"id":"MATCHMAKING","name":"Tham gia trận"},
+      {"id":"SPECIFIC_GAME_MODE","name":"Một chế độ chơi"},
+      {"id":"RANKED","name":"Xếp hạng"},
+      {"id":"CHAT","name":"Trò chuyện"}
+    ],
+    "banTypes":["TEMP_BAN","PERMA_BAN","MATCH_BAN"],
+    "muteTypes":["MUTE","CHAT_BAN"],
+    "accountScopes":["ACCOUNT"],
+    "matchScopes":["ACCOUNT","MATCHMAKING"],
+    "defaultCategory":"other",
+    "defaultPublicReason":"Tài khoản đang bị hạn chế theo quy định của trò chơi.",
+    "reviewNotice":"Báo cáo là thông tin cần xác minh, không tự động dẫn đến khóa tài khoản.",
+    "appealNotice":"Nếu cho rằng quyết định chưa chính xác, bạn có thể gửi yêu cầu xem xét. Không gửi mật khẩu hoặc mã xác thực."
+  },
+  "operations": {
+    "presenceMaxEntries":10000,
+    "presenceTtlSeconds":30,
+    "presenceRequestsPerSecond":300,
+    "presenceBurst":500,
+    "serverId":"local-01",
+    "defaultPlayerName":"Survivor",
+    "leaderboardMode":"arena"
+  },
+  "adminTabs":[{"id":"players","name":"Người chơi"},{"id":"reports","name":"Báo cáo"},{"id":"appeals","name":"Xem xét ban"},{"id":"security-events","name":"Sự kiện bảo mật"},{"id":"whitelist","name":"Whitelist"},{"id":"roles","name":"Vai trò & quyền"},{"id":"catalog","name":"Nội dung"},{"id":"policy","name":"Chính sách"},{"id":"settings","name":"Hệ thống"},{"id":"audit","name":"Nhật ký"}],
+  "catalog": {
+    "network":{"invalidMessageLimit":12,"invalidMessageWindowSeconds":30},
+    "client":{"defaultMode":"arena","soloDurationSeconds":600,"presenceIntervalSeconds":12,"directoryIntervalSeconds":5,"toastMilliseconds":4000,"noticeMilliseconds":3500},
+    "labels":{"relic":"Di vật","nest":"Tổ quái","escort":"Hộ tống","portal":"Giữ E để rút lui","shrineContested":"Đền đang tranh chấp","shrineOwned":"Đền đã chiếm","shrineCapture":"Khép vòng quanh đền","hydra":"Ancient Hydra"}
+  }
+}
